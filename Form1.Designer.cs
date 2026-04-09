@@ -45,7 +45,7 @@
             grpOrder = new GroupBox();
             lblTotalCost = new Label();
             lstOrder = new ListBox();
-            button1 = new Button();
+            btnOrder = new Button();
             btnlnit = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
@@ -209,7 +209,7 @@
             grpOption.Controls.Add(chkCheese);
             grpOption.Font = new Font("맑은 고딕", 18F, FontStyle.Regular, GraphicsUnit.Point, 129);
             grpOption.ForeColor = Color.Red;
-            grpOption.Location = new Point(483, 129);
+            grpOption.Location = new Point(461, 129);
             grpOption.Name = "grpOption";
             grpOption.Size = new Size(250, 319);
             grpOption.TabIndex = 12;
@@ -222,7 +222,7 @@
             grpOrder.Controls.Add(lstOrder);
             grpOrder.Font = new Font("맑은 고딕", 18F, FontStyle.Regular, GraphicsUnit.Point, 129);
             grpOrder.ForeColor = Color.Red;
-            grpOrder.Location = new Point(778, 129);
+            grpOrder.Location = new Point(751, 129);
             grpOrder.Name = "grpOrder";
             grpOrder.Size = new Size(250, 281);
             grpOrder.TabIndex = 13;
@@ -232,40 +232,45 @@
             // lblTotalCost
             // 
             lblTotalCost.AutoSize = true;
+            lblTotalCost.Font = new Font("맑은 고딕", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 129);
             lblTotalCost.ForeColor = Color.Blue;
             lblTotalCost.ImageAlign = ContentAlignment.MiddleLeft;
             lblTotalCost.Location = new Point(6, 222);
             lblTotalCost.Name = "lblTotalCost";
-            lblTotalCost.Size = new Size(195, 41);
+            lblTotalCost.Size = new Size(180, 38);
             lblTotalCost.TabIndex = 3;
             lblTotalCost.Text = "총 금액 : 0원";
             // 
             // lstOrder
             // 
+            lstOrder.Font = new Font("맑은 고딕", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 129);
             lstOrder.FormattingEnabled = true;
             lstOrder.Location = new Point(6, 46);
             lstOrder.Name = "lstOrder";
-            lstOrder.Size = new Size(238, 168);
+            lstOrder.Size = new Size(238, 154);
             lstOrder.TabIndex = 0;
             // 
-            // button1
+            // btnOrder
             // 
-            button1.BackColor = Color.Lime;
-            button1.Font = new Font("맑은 고딕", 12F, FontStyle.Regular, GraphicsUnit.Point, 129);
-            button1.Location = new Point(778, 438);
-            button1.Name = "button1";
-            button1.Size = new Size(104, 45);
-            button1.TabIndex = 1;
-            button1.Text = "주문하기";
-            button1.UseVisualStyleBackColor = false;
+            btnOrder.BackColor = Color.Lime;
+            btnOrder.Font = new Font("맑은 고딕", 12F, FontStyle.Regular, GraphicsUnit.Point, 129);
+            btnOrder.ForeColor = SystemColors.ActiveCaptionText;
+            btnOrder.Location = new Point(757, 438);
+            btnOrder.Name = "btnOrder";
+            btnOrder.Size = new Size(110, 50);
+            btnOrder.TabIndex = 1;
+            btnOrder.Text = "주문하기";
+            btnOrder.UseVisualStyleBackColor = false;
+            btnOrder.Click += btnOrder_Click;
             // 
             // btnlnit
             // 
             btnlnit.BackColor = Color.FromArgb(192, 0, 0);
             btnlnit.Font = new Font("맑은 고딕", 12F, FontStyle.Regular, GraphicsUnit.Point, 129);
-            btnlnit.Location = new Point(901, 438);
+            btnlnit.ForeColor = SystemColors.ButtonHighlight;
+            btnlnit.Location = new Point(885, 438);
             btnlnit.Name = "btnlnit";
-            btnlnit.Size = new Size(100, 45);
+            btnlnit.Size = new Size(110, 50);
             btnlnit.TabIndex = 2;
             btnlnit.Text = "초기화";
             btnlnit.UseVisualStyleBackColor = false;
@@ -275,11 +280,11 @@
             // 
             AutoScaleDimensions = new SizeF(9F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1061, 587);
+            ClientSize = new Size(1038, 594);
             Controls.Add(grpOrder);
             Controls.Add(btnlnit);
             Controls.Add(grpOption);
-            Controls.Add(button1);
+            Controls.Add(btnOrder);
             Controls.Add(grpMenu);
             Controls.Add(lblAppName);
             Name = "Form1";
@@ -315,7 +320,7 @@
         private GroupBox grpOrder;
         private Label lblTotalCost;
         private ListBox lstOrder;
-        private Button button1;
+        private Button btnOrder;
         private Button btnlnit;
     }
 }
