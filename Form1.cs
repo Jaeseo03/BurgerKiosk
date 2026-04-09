@@ -18,12 +18,13 @@ namespace BurgerKiosk
         // '초기화' 버튼 클릭 시 실행되는 이벤트
         private void btnlnit_Click(object sender, EventArgs e)
         {
-            lblTotalCost.ForeColor = Color.Blue; // 다시 파란색으로 복구
+            lblTotalCost.ForeColor = Color.LightSkyBlue; // 다시 파란색으로 복구
             lblTotalCost.Font = new Font(lblTotalCost.Font.FontFamily, 16, FontStyle.Regular); // 원래 크기(예: 9pt)로 복구
             // 모든 선택 요소(라디오버튼, 체크박스) 해제
             rdoHamBurger.Checked = false;
             rdoBulgogiBurger.Checked = false;
             rdoChickenBurger.Checked = false;
+            rdoHamBurger.TabStop = true;
 
             chkPotato.Checked = false;
             chkCola.Checked = false;
@@ -50,8 +51,9 @@ namespace BurgerKiosk
             }
 
             // 정상 주문 로직 시작
-            lblTotalCost.ForeColor = Color.Blue; // 다시 파란색으로 복구
+            lblTotalCost.ForeColor = Color.LightSkyBlue; // 다시 파란색으로 복구
             lblTotalCost.Font = new Font(lblTotalCost.Font.FontFamily, 16, FontStyle.Regular); // 원래 크기(예: 9pt)로 복구
+            
             // 버튼을 누를 때마다 중복 합산을 방지하기 위해 초기화 후 재계산
             totalCost = 0;
             lstOrder.Items.Clear();
@@ -97,6 +99,38 @@ namespace BurgerKiosk
 
             // 3. 최종 금액 표시 (ToString("N0")를 사용하여 세 자리마다 콤마 추가)
             lblTotalCost.Text = "총 금액: " + totalCost.ToString("N0") + "원";
+        }
+
+        private void rdoHamBurger_KeyDown(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        // 라디오 버튼들의 KeyDown 이벤트에 연결하세요
+        //private void rdoBurger_KeyDown(object sender, KeyEventArgs e)
+        //{
+        //    if (e.KeyCode == Keys.Space)
+        //    {
+        //        RadioButton rdo = sender as RadioButton;
+        //        if (rdo != null)
+        //        {
+        //            // 모든 라디오 버튼을 일단 해제 (AutoCheck가 False이므로 수동 제어)
+        //            rdoHamBurger.Checked = false;
+        //            rdoBulgogiBurger.Checked = false;
+        //            rdoChickenBurger.Checked = false;
+
+        //            // 현재 스페이스바를 누른 버튼만 선택
+        //            rdo.Checked = true;
+
+        //            // 실시간 업데이트 호출
+        //            btnOrder_Click(sender, e);
+        //        }
+        //    }
+        //}
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
