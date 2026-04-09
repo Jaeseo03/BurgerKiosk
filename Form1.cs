@@ -18,6 +18,8 @@ namespace BurgerKiosk
         // '초기화' 버튼 클릭 시 실행되는 이벤트
         private void btnlnit_Click(object sender, EventArgs e)
         {
+            lblTotalCost.ForeColor = Color.Blue; // 다시 파란색으로 복구
+            lblTotalCost.Font = new Font(lblTotalCost.Font.FontFamily, 16, FontStyle.Regular); // 원래 크기(예: 9pt)로 복구
             // 모든 선택 요소(라디오버튼, 체크박스) 해제
             rdoHamBurger.Checked = false;
             rdoBulgogiBurger.Checked = false;
@@ -37,6 +39,19 @@ namespace BurgerKiosk
         // '주문하기' 버튼 클릭 시 실행되는 이벤트
         private void btnOrder_Click(object sender, EventArgs e)
         {
+            // 메뉴 미선택 시 처리
+            if (!rdoHamBurger.Checked && !rdoBulgogiBurger.Checked && !rdoChickenBurger.Checked)
+            {
+                lblTotalCost.Text = "메뉴를 먼저\n" + "선택해주세요!";
+                lblTotalCost.ForeColor = Color.Red;
+                lblTotalCost.Font = new Font(lblTotalCost.Font.FontFamily, 11, FontStyle.Bold);
+                lstOrder.Items.Clear();
+                return;
+            }
+
+            // 정상 주문 로직 시작
+            lblTotalCost.ForeColor = Color.Blue; // 다시 파란색으로 복구
+            lblTotalCost.Font = new Font(lblTotalCost.Font.FontFamily, 16, FontStyle.Regular); // 원래 크기(예: 9pt)로 복구
             // 버튼을 누를 때마다 중복 합산을 방지하기 위해 초기화 후 재계산
             totalCost = 0;
             lstOrder.Items.Clear();
